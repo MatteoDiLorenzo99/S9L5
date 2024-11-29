@@ -1,0 +1,300 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Spazio tra le card e margini */
+.carousel-container {
+  margin: 30px 0;
+}
+
+.carousel-container:last-child {
+  margin-bottom: 0 !important; /* Rimuove il margine inferiore solo sull'ultimo carosello */
+  padding-bottom: 3em;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #222;
+}
+
+.card-img-top {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-img-top:hover {
+  transform: scale(1.05); /* Leggero ingrandimento dell'immagine al passaggio del mouse */
+}
+
+.card-body {
+  padding: 10px;
+  background-color: #333;
+}
+
+.card-title {
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Sfondo nero per l'intero main */
+main {
+  background-color: #141414; /* Tipico sfondo di Netflix */
+  color: white; /* Testo bianco per contrasto */
+  padding-top: 50px; /* Spazio per il navbar se necessario */
+  min-height: 100vh; /* Altezza minima 100% */
+}
+
+/* Aggiungiamo un po' di padding a sinistra ai titoli */
+.carousel-title {
+  padding-left: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* Personalizzazione del carosello */
+.carousel-container {
+  margin-bottom: 30px;
+}
+
+/* Modifica del carosello per dare un po' più di spaziatura tra le card */
+.carousel-inner .carousel-item .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Styling per le frecce di navigazione */
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: #fff; /* Frecce bianche */
+  border-radius: 0; /* Angoli quadrati */
+  width: 40px; /* Larghezza ridotta delle frecce */
+  height: 40px; /* Altezza ridotta delle frecce */
+  top: 50%; /* Centriamo verticalmente */
+  transform: translateY(-50%); /* Centriamo esattamente */
+}
+
+/* Modifica delle icone delle frecce */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #000; /* Colore delle icone delle frecce in nero */
+  filter: invert(1); /* Invertiamo i colori delle icone per ottenere il bianco */
+  width: 20px; /* Ridimensioniamo l'icona delle frecce */
+  height: 20px; /* Ridimensioniamo l'icona delle frecce */
+}
+
+/* Eseguiamo alcune modifiche per migliorare l'aspetto generale */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 100%; /* Ridimensiona l'icona */
+  background-position: center; /* Centriamo l'icona */
+}
+
+/* Responsività per il carosello */
+@media (max-width: 576px) {
+  /* Per mobile, una sola immagine per riga */
+  .carousel-inner .row {
+    display: flex; /* Blocchiamo la visualizzazione della riga per mobile */
+    flex-wrap: nowrap;
+  }
+
+  .carousel-inner .row .col-12 {
+    width: 100% !important; /* Forziamo le colonne a prendere tutta la larghezza disponibile */
+    flex: 0 0 ;
+  }
+
+  /* Ridimensioniamo le frecce per essere sempre visibili */
+  .carousel-control-prev, .carousel-control-next {
+    width: 50px; /* Larghezza più grande per la visibilità */
+    height: 50px;
+  }
+
+  /* Aggiustiamo la larghezza delle immagini per il mobile */
+  .carousel-inner .row .col-12 .card-img-top {
+    width: 100%; /* Forziamo l'immagine a occupare tutta la larghezza */
+    height: auto;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  /* Per tablet, due immagini per riga */
+  .carousel-inner .row {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .carousel-inner .row .col-sm-6 {
+    flex: 0 0 50%; /* Due immagini per riga */
+  }
+
+  /* Ridimensioniamo le frecce per tablet */
+  .carousel-control-prev, .carousel-control-next {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Aggiustiamo la larghezza delle immagini per il tablet */
+  .carousel-inner .row .col-sm-6 .card-img-top {
+    width: 100%; /* Forziamo l'immagine a occupare tutta la larghezza */
+    height: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Per desktop, sei immagini per riga */
+  .carousel-inner .row {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .carousel-inner .row .col-lg-2 {
+    flex: 0 0 16.66667%; /* Sei immagini per riga */
+  }
+
+  /* Ridimensioniamo le frecce per desktop */
+  .carousel-control-prev, .carousel-control-next {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Aggiustiamo la larghezza delle immagini per il desktop */
+  .carousel-inner .row .col-lg-2 .card-img-top {
+    width: 100%; /* Forziamo l'immagine a occupare tutta la larghezza */
+    height: auto;
+  }
+}
+
+/* Nascondiamo gli indicatori (punti sotto le frecce) */
+.carousel-indicators {
+  visibility: hidden;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.5rem;
+}
+
+
+.carousel-control-next, .carousel-control-prev{
+  top: 8em !important  ;
+  bottom: auto  !important;
+  width: 5% !important;
+}
+
+.text-truncate {
+  color: white !important;
+}
+
+.card-header{
+  background-color: #212529;
+}
+
+.card-body{
+  background-color: #212529;  
+}
+
+#Profile{
+  color: white !important;
+}
+
+#colonnadestra{
+  padding-left: 2em;
+}
+
+#Placeholder{
+  background-color: grey !important;
+}
+
+#Placeholder::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Imposta il colore del placeholder a bianco, ma leggermente trasparente */
+}
+
+/* Aggiungi questi stili nel tuo file CSS */
+.dropdown-wrapper {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+.dropdown-custom {
+  border: none;
+  padding: 5px 10px;
+  background-color: transparent;
+  font-size: 16px;
+}
+
+.dropdown-menu {
+  border-radius: 0;
+  margin-top: 0;
+}
+
+input[type="text"], .form-control {
+  background-color: transparent !important;
+}
+
+#maturity{
+  font-size: 20px;
+}
+
+/* Personalizzazione per checkbox quadrate */
+.custom-checkbox .form-check-input {
+  width: 24px;  /* Dimensione della checkbox */
+  height: 24px; /* Dimensione della checkbox */
+  border-radius: 0; /* Rimuovi l'arrotondamento dei bordi per renderle quadrate */
+  border: 2px solid #ccc; /* Colore del bordo */
+  background-color: transparent;
+}
+
+.custom-checkbox .form-check-input:checked {
+  background-color: #007bff; /* Colore di sfondo quando la checkbox è selezionata */
+  border-color: #007bff; /* Colore del bordo quando la checkbox è selezionata */
+}
+
+.custom-checkbox .form-check-label {
+  font-size: 14px; /* Dimensione del testo per la label */
+  margin-left: 10px; /* Spazio tra la checkbox e il testo */
+}
+
+
+.schedaprincipale{
+  padding-top: 4em !important;
+}
+
+/* Personalizzazione per i bottoni quadrati e più grandi */
+.custom-btn {
+  width: 130px; /* Larghezza del bottone */
+  height: 50px; /* Altezza del bottone */
+  font-size: 16px; /* Aumento della dimensione del testo */
+  padding: 0; /* Rimuovere padding extra per mantenere la forma quadrata */
+  display: flex; /* Usa flex per centrare il testo */
+  justify-content: center; /* Allineamento orizzontale del testo */
+  align-items: center; /* Allineamento verticale del testo */
+  border-radius: 5px; /* Bordo leggermente arrotondato (opzionale) */
+}
+
+.custom-btn:focus, .custom-btn:hover {
+  outline: none; /* Rimuovere il bordo di focus se c'è */
+  box-shadow: none; /* Rimuovere l'ombra quando il bottone è attivo */
+}
+
+#trend{
+  padding-left: 0.6em;
+  padding-top: 1em;
+}
